@@ -2,12 +2,10 @@ import React, { useContext } from "react";
 import ReactDOM from "react-dom";
 
 import StoreProvider from "./store/StoreProvider";
-
-import { Context as CountContext } from "./store/stores/Count";
-import { Context as MathContext } from "./store/stores/Math";
+import useStore from "./store/useStore";
 
 const Counter = () => {
-  const someContext = useContext(CountContext);
+  const someContext = useStore("count");
   const { count, increment, decrement } = someContext;
 
   return (
@@ -20,7 +18,7 @@ const Counter = () => {
 };
 
 const Math = () => {
-  const someContext = useContext(MathContext);
+  const someContext = useStore("math");
   const { count, multiply } = someContext;
 
   return (

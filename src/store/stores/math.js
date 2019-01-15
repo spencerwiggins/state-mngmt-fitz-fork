@@ -3,7 +3,7 @@ const state = {
 };
 
 const actions = {
-  multiply: ({ count }) => ({ count: count * 2 })
+  multiply: ({ count, ...args }) => ({ count: count * 2 })
 };
 
 export { actions, state };

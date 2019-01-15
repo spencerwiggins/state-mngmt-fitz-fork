@@ -1,6 +1,6 @@
 import React from "react";
-import CountProvider from "./stores/Count";
-import MathProvider from "./stores/Math";
+import CountProvider from "./components/Count";
+import MathProvider from "./components/Math";
 
 const StoreProvider = ({ children }) => (
   <CountProvider>

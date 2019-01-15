@@ -1,9 +1,11 @@
 import { useContext } from "react";
 
-import { Context as CurrentUserContext } from "./CurrentUser";
+import { Context as CountContext } from "./components/Count";
+import { Context as MathContext } from "./components/Math";
 
 const stores = {
-  CurrentUser: CurrentUserContext
+  count: CountContext,
+  math: MathContext
 };
 
 const useStore = storeName => {

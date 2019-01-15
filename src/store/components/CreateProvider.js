@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import updateState from "./updateState";
+import updateState from "../updateState";
 
 const Provider = ({
   state: initialState,
@@ -22,4 +22,4 @@ const Provider = ({
   );
 };
 
-export { Provider };
+export default Provider;
