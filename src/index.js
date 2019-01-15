@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 
 import StoreProvider from "./store/StoreProvider";
 import useStore from "./store/useStore";
 
 const Counter = () => {
-  const someContext = useStore("count");
-  const { count, increment, decrement } = someContext;
+  const { count, increment, decrement } = useStore("count");
 
   return (
     <>
@@ -18,8 +17,7 @@ const Counter = () => {
 };
 
 const Math = () => {
-  const someContext = useStore("math");
-  const { count, multiply } = someContext;
+  const { count, multiply } = useStore("math");
 
   return (
     <>
