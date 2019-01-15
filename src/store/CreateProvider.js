@@ -1,11 +1,10 @@
-import React, { useState, createContext } from "react";
+import React, { useState } from "react";
 import updateState from "./updateState";
-
-const Context = createContext();
 
 const Provider = ({
   state: initialState,
   actions: initialActions,
+  context: Context,
   children
 }) => {
   const [state, setState] = useState(initialState);
@@ -23,4 +22,4 @@ const Provider = ({
   );
 };
 
-export { Context, Provider };
+export { Provider };
