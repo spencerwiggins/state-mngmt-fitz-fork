@@ -1,15 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom";
-import IdCard from "./components/IdCard";
-import LoginLogoutButton from "./components/LoginLogoutButton";
-import { Provider as CurrentUserProvider } from "./store/CurrentUser";
+
+import {
+  Provider as CountProvider,
+  Context as CountContext
+} from "./store/createProvider";
+import { state, actions } from "./store/countStore";
+
+const Counter = () => {
+  const someContext = useContext(CountContext);
+  const { count, increment, decrement } = someContext;
+
+  return (
+    <>
+      <div>{count}</div>
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+    </>
+  );
+};
 
 function AppContainer() {
   return (
-    <CurrentUserProvider>
-      <IdCard />
-      <LoginLogoutButton />
-    </CurrentUserProvider>
+    <CountProvider state={state} actions={actions}>
+      <Counter />
+    </CountProvider>
   );
 }
 
