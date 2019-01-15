@@ -1,8 +1,8 @@
 import React from "react";
-import useStore from "../store/useStore";
+import useStore from "../../core/store/useStore";
 
 const IdCardContainer = () => {
-  const { currentUser } = useStore("CurrentUser");
+  const { currentUser } = useStore("user");
 
   return <IdCard user={currentUser} />;
 };
@@ -12,7 +12,7 @@ const IdCard = ({ user }) => {
     return (
       <>
         <h3>ID Card for {user.name}</h3>
-        {user.img && <img src={user.img} />}
+        {user.img && <img src={user.img} alt="" />}
       </>
     );
   } else {

@@ -1,16 +1,15 @@
 import React from "react";
+import composeActions from "../helpers/composeActions";
 import useStore from "../store/useStore";
-import { useLoginActions } from "../actions/loginActions";
 
-const LoginLogoutButtonContainer = () => {
-  const { currentUser } = useStore("CurrentUser");
-  const { login, logout } = useLoginActions();
+const LoginLogoutButtonContainer = ({ actions }) => {
+  const { currentUser, setCurrentUser, clearCurrentUser } = useStore("user");
 
   return (
     <LoginLogoutButton
       currentUser={currentUser}
-      onLoginClick={login}
-      onLogoutClick={logout}
+      onLoginClick={composeActions([actions.login, setCurrentUser])}
+      onLogoutClick={clearCurrentUser}
     />
   );
 };

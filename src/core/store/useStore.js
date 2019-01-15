@@ -2,10 +2,12 @@ import { useContext } from "react";
 
 import { Context as CountContext } from "./components/Count";
 import { Context as MathContext } from "./components/Math";
+import { Context as UserContext } from "./components/User";
 
 const stores = {
   count: CountContext,
-  math: MathContext
+  math: MathContext,
+  user: UserContext
 };
 
 const useStore = storeName => {

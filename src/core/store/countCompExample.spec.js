@@ -5,16 +5,16 @@ import { render } from "react-testing-library";
 
 test("useStore will import correct store", async () => {
   const Comp = () => {
-    const { currentUser } = useStore("CurrentUser");
+    const { count } = useStore("count");
 
     return (
       <div>
-        <div data-testid="user">{currentUser}</div>
+        <div data-testid="count">count is: {count}</div>
       </div>
     );
   };
 
   const { getByTestId } = render(<Comp />);
 
-  expect(getByTestId("user")).toBeNull;
+  expect(getByTestId("count")).toHaveTextContent("0");
 });

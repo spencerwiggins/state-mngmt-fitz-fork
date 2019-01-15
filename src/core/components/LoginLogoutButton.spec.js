@@ -1,5 +1,6 @@
 import React from "react";
 import { render, waitForElement, fireEvent } from "react-testing-library";
+import 'jest-dom/extend-expect'
 import LoginLogoutButton from "./LoginLogoutButton";
 
 test("Login/logout", async () => {
