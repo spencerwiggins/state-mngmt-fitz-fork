@@ -1,16 +1,28 @@
 import React, { createContext } from "react";
-import { Provider } from "../CreateProvider";
+import createProvider from "../components/CreateProvider";
 import { state, actions } from "./count";
 
-let Context;
-const CountProvider = ({ children }) => {
-  Context = createContext(state);
-  return (
-    <Provider state={state} actions={actions} context={Context}>
-      {children}
-    </Provider>
-  );
+const createCountStore = () => {
+  const Context = createContext(state);
+  const Provider = createProvider(Context.Provider, state, actions);
+
+  return {
+    Provider,
+    Context
+  };
 };
 
-export default CountProvider;
-export { Context };
+export default createCountStore;
+
+// let Context;
+// const CountProvider = ({ children }) => {
+//   Context = createContext(state);
+//   return (
+//     <Provider state={state} actions={actions} context={Context}>
+//       {children}
+//     </Provider>
+//   );
+// };
+
+// export default CountProvider;
+// export { Context };

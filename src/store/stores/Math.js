@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
-import { Provider } from "../CreateProvider";
+import { Provider } from "../components/CreateProvider";
 import { state, actions } from "./math";
 
 let Context;

@@ -2,12 +2,14 @@ import React, { useContext } from "react";
 import ReactDOM from "react-dom";
 
 import StoreProvider from "./store/StoreProvider";
+import useStore from "./store/useStore";
 
-import { Context as CountContext } from "./store/stores/Count";
-import { Context as MathContext } from "./store/stores/Math";
+// import { Context as CountContext } from "./store/stores/Count";
+// import { Context as MathContext } from "./store/stores/Math";
 
 const Counter = () => {
-  const someContext = useContext(CountContext);
+  const someContext = useStore("count");
+  // console.log("countContext", someContext);
   const { count, increment, decrement } = someContext;
 
   return (
@@ -19,25 +21,20 @@ const Counter = () => {
   );
 };
 
-const Math = () => {
-  const someContext = useContext(MathContext);
-  const { count, multiply } = someContext;
+// const Math = () => {
+//   const someContext = useStore("math");
+//   const { count, multiply } = someContext;
 
-  return (
-    <>
-      <div>{count}</div>
-      <button onClick={multiply}>*</button>
-    </>
-  );
-};
+//   return (
+//     <>
+//       <div>{count}</div>
+//       <button onClick={multiply}>*</button>
+//     </>
+//   );
+// };
 
 function AppContainer() {
-  return (
-    <StoreProvider>
-      <Counter />
-      <Math />
-    </StoreProvider>
-  );
+  return <StoreProvider>hello</StoreProvider>;
 }
 
 const rootElement = document.getElementById("root");
