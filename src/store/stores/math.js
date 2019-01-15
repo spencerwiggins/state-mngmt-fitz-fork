@@ -3,7 +3,9 @@ const state = {
 };
 
 const actions = {
-  multiply: ({ count, ...args }) => ({ count: count * 2 })
+  multiply: ({ count }, multiplier) => ({
+    count: count * multiplier
+  })
 };
 
 export { actions, state };

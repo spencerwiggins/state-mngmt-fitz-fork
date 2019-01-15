@@ -22,7 +22,7 @@ const Math = () => {
   return (
     <>
       <div>{count}</div>
-      <button onClick={multiply}>*</button>
+      <button onClick={() => multiply(10)}>*</button>
     </>
   );
 };

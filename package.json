@@ -8,6 +8,7 @@
     "immer": "1.10.0",
     "jest": "23.6.0",
     "jest-dom": "3.0.0",
+    "lodash": "4.17.11",
     "react": "16.7.0-alpha.2",
     "react-dom": "16.7.0-alpha.2",
     "react-scripts": "2.0.3",

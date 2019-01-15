@@ -11,7 +11,7 @@ const Provider = ({
   const _updateState = updateState(state, setState);
 
   const actions = Object.entries(initialActions).reduce((acc, [fnName, fn]) => {
-    acc[fnName] = () => _updateState(fn);
+    acc[fnName] = (...args) => _updateState(() => fn({ ...state }, ...args));
     return acc;
   }, {});
 
