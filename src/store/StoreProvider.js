@@ -2,7 +2,7 @@ import React from "react";
 import {
   Provider as CreateProvider
   // Context as CreateContext
-} from "./createProvider";
+} from "./CreateProvider";
 
 const StoreProvider = ({ stores, children }) => {
   console.log("stores", stores);
