@@ -1,6 +1,6 @@
 import React, { createContext } from "react";
-import { Provider } from "./CreateProvider";
-import { state, actions } from "./stores/count";
+import { Provider } from "../CreateProvider";
+import { state, actions } from "./count";
 
 let Context;
 const CountProvider = ({ children }) => {

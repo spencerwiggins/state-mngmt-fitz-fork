@@ -1,7 +1,9 @@
 import stores from "./stores";
 
 const createStores = () => {
-  console.log("createStores", stores);
+  return {
+    // Provider
+  };
 };
 
 export default createStores;

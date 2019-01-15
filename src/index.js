@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import ReactDOM from "react-dom";
 
-import CountProvider, { Context as CountContext } from "./store/Count";
-import MathProvider, { Context as MathContext } from "./store/Math";
+import StoreProvider from "./store/StoreProvider";
+
+import { Context as CountContext } from "./store/stores/Count";
+import { Context as MathContext } from "./store/stores/Math";
 
 const Counter = () => {
   const someContext = useContext(CountContext);
@@ -31,12 +33,10 @@ const Math = () => {
 
 function AppContainer() {
   return (
-    <CountProvider>
-      <MathProvider>
-        <Counter />
-        <Math />
-      </MathProvider>
-    </CountProvider>
+    <StoreProvider>
+      <Counter />
+      <Math />
+    </StoreProvider>
   );
 }
 

@@ -1,23 +1,11 @@
 import React from "react";
-import {
-  Provider as CreateProvider
-  // Context as CreateContext
-} from "./CreateProvider";
+import CountProvider from "./stores/Count";
+import MathProvider from "./stores/Math";
 
-const StoreProvider = ({ stores, children }) => {
-  console.log("stores", stores);
-  const Providers = Object.entries(stores).map(([, obj]) => {
-    const { state: storeState, actions: storeActions } = obj;
-
-    return <CreateProvider state={storeState} actions={storeActions} />;
-  });
-
-  return Providers.map((item, i) => (
-    <div key={i}>{React.createElement("div", [], children)}</div>
-  ));
-
-  // return <div>here</div>;
-  // return Providers.map((X, i) => <div key={i}><X>{children}</X></div>);
-};
+const StoreProvider = ({ children }) => (
+  <CountProvider>
+    <MathProvider>{children}</MathProvider>
+  </CountProvider>
+);
 
 export default StoreProvider;
