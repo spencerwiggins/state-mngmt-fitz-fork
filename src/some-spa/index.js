@@ -1,5 +1,6 @@
 import React from "react";
 
+// Should move `store` to it's own root directory under client
 import StoreProvider from "../core/store/StoreProvider";
 import useStore from "../core/store/useStore";
 
