@@ -1,16 +1,29 @@
 import React from "react";
-import CountProvider from "./components/Count";
-import MathProvider from "./components/Math";
-import UserProvider from "./components/User";
+import * as comps from "./components";
 
-// TODO: Dynamically create each Provider based stores:
-// https://codesandbox.io/s/pj5v338nk7
-const StoreProvider = ({ children }) => (
-  <UserProvider>
-    <CountProvider>
-      <MathProvider>{children}</MathProvider>
-    </CountProvider>
-  </UserProvider>
-);
+const StoreProvider = ({ children }) => {
+  const renderComponents = map => {
+    const Component = map.reverse().reduce(
+      (Accumulator, { component, props, context }, index) => {
+        const LastComp = component;
+        return () => (
+          <LastComp
+            state={props.state}
+            actions={props.actions}
+            context={context}
+            content={index === 0 ? children : null}
+          >
+            <Accumulator />
+          </LastComp>
+        );
+      },
+      props => null
+    );
+
+    return <Component />;
+  };
+
+  return renderComponents(comps.all);
+};
 
 export default StoreProvider;

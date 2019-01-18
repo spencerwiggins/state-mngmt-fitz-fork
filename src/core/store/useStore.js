@@ -1,15 +1,14 @@
 import { useContext } from "react";
 
-import { Context as CountContext } from "./components/Count";
-import { Context as MathContext } from "./components/Math";
-import { Context as UserContext } from "./components/User";
+import * as comps from "./components";
 
-// TODO: Dynamically create these
-const stores = {
-  count: CountContext,
-  math: MathContext,
-  user: UserContext
-};
+const allComps = comps.all;
+
+const stores = allComps.reduce((acc, { name, context }) => {
+  acc[name] = context;
+
+  return acc;
+}, {});
 
 const useStore = storeName => {
   const store = stores[storeName];
