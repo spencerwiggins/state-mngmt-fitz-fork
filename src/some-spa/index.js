@@ -4,7 +4,7 @@ import React from "react";
 import StoreProvider from "../core/store/StoreProvider";
 import * as stores from "./stores";
 
-import LoginLogoutButton from "../core/components/LoginLogoutButton";
+import LoginLogoutButton from "./components/LoginLogoutButton";
 import IdCard from "../feature/components/IdCard";
 import Math from "./components/Math";
 import Count from "./components/Count";
