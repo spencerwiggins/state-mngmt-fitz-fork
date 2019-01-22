@@ -1,12 +1,12 @@
 import { createContext } from "react";
-import CreateProviderComponent from "./CreateProviderComponent";
+import ProviderComponent from "./ProviderComponent";
 
 const createProviderComponents = stores => {
   const components = Object.entries(stores).map(
     ([name, { state, actions }]) => {
       const Context = createContext(state);
       return {
-        component: CreateProviderComponent,
+        component: ProviderComponent,
         props: {
           state,
           actions

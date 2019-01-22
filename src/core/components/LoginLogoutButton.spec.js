@@ -1,9 +1,9 @@
 import React from "react";
 import { render, waitForElement, fireEvent } from "react-testing-library";
-import 'jest-dom/extend-expect'
+import "jest-dom/extend-expect";
 import LoginLogoutButton from "./LoginLogoutButton";
 
-test("Login/logout", async () => {
+test.skip("Login/logout", async () => {
   const { getByText } = render(<LoginLogoutButton />);
   await waitForElement(() => getByText(/login/i));
 

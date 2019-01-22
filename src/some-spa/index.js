@@ -2,40 +2,19 @@ import React from "react";
 
 // Should move `store` to it's own root directory under client
 import StoreProvider from "../core/store/StoreProvider";
-import useStore from "../core/store/useStore";
+import * as stores from "./stores";
 
 import LoginLogoutButton from "../core/components/LoginLogoutButton";
 import IdCard from "../feature/components/IdCard";
+import Math from "./components/Math";
+import Count from "./components/Count";
 import loginActions from "./actions/loginActions";
-
-const Counter = () => {
-  const { count, increment, decrement } = useStore("count");
-
-  return (
-    <>
-      <div>{count}</div>
-      <button onClick={increment}>+</button>
-      <button onClick={decrement}>-</button>
-    </>
-  );
-};
-
-const Math = () => {
-  const { count, multiply } = useStore("math");
-
-  return (
-    <>
-      <div>{count}</div>
-      <button onClick={() => multiply(10)}>*</button>
-    </>
-  );
-};
 
 function App() {
   return (
-    <StoreProvider>
-      <Counter />
+    <StoreProvider stores={stores}>
       <Math />
+      <Count />
       <IdCard />
       <LoginLogoutButton actions={loginActions} />
     </StoreProvider>

@@ -1,16 +1,17 @@
 import { useContext } from "react";
 
-import * as comps from "./components";
+import UseStoreContext from "./components/UseStore";
 
-const allComps = comps.all;
+const _stores = comps =>
+  comps.reduce((acc, { name, context }) => {
+    acc[name] = context;
 
-const stores = allComps.reduce((acc, { name, context }) => {
-  acc[name] = context;
-
-  return acc;
-}, {});
+    return acc;
+  }, {});
 
 const useStore = storeName => {
+  const storeContext = useContext(UseStoreContext);
+  const stores = _stores(storeContext);
   const store = stores[storeName];
   return useContext(store);
 };

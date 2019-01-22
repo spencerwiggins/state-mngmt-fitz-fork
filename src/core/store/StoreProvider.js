@@ -1,7 +1,10 @@
-import React from "react";
-import * as comps from "./components";
+import React, { createContext } from "react";
+import createProviderComponents from "./components/createProviderComponents";
+import { UseStoreProvider } from "./components/UseStore";
 
-const StoreProvider = ({ children }) => {
+const StoreProvider = ({ stores, children }) => {
+  const comps = createProviderComponents(stores);
+
   const renderComponents = map => {
     const Component = map.reverse().reduce(
       (Accumulator, { component, props, context }, index) => {
@@ -23,7 +26,9 @@ const StoreProvider = ({ children }) => {
     return <Component />;
   };
 
-  return renderComponents(comps.all);
+  return (
+    <UseStoreProvider comps={comps}>{renderComponents(comps)}</UseStoreProvider>
+  );
 };
 
 export default StoreProvider;

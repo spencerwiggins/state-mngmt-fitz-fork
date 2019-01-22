@@ -1,7 +1,7 @@
 import React from "react";
 import Provider from "./Provider";
 
-const CreateProviderComponent = ({
+const ProviderComponent = ({
   state,
   actions,
   children,
@@ -13,4 +13,4 @@ const CreateProviderComponent = ({
   </Provider>
 );
 
-export default CreateProviderComponent;
+export default ProviderComponent;
